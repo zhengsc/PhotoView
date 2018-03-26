@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片浏览</title>
+	<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="previewPhot.css">
+	<link rel="stylesheet" href="../Toast/Toast.css">
+	<style>
+		* { padding: 0; margin: 0; box-sizing: border-box; }
+		body { padding-top: 20px; text-align: center; }
+		ul { list-style: none; overflow: hidden; display: flex; justify-content: center; flex-wrap: wrap; }
+		.small li { width: 100px; height: 70px; margin: 10px; }
+		img { max-width: 100%; max-height: 100%; }
+		button { width: auto; height: 30px; text-align: center; padding: 2px 10px; }
+	</style>
+</head>
+<body>
+	<h3>点击下方图片进入浏览</h3>
+	<ul class="small">
+		<li>
+			<img src="1.jpg" alt="">
+		</li>
+		<li>
+			<img src="2.jpg" alt="">
+		</li>
+		<li>
+			<img src="3.jpg" alt="">
+		</li>
+		<li>
+			<img src="4.jpg" alt="">
+		</li>
+		<li>
+			<img src="5.jpg" alt="">
+		</li>
+	</ul>
+
+	<button>根据图片路径浏览</button>
+
+	<script src="../Toast/Toast.js"></script>
+	<script src="previewPhoto.js"></script>
+	<script>
+		var instance1 = new PreviewPhoto()
+		instance1.init({
+			selector: '.small img',
+			images: '.small img',
+			index: 2,
+			callback: function(index, total) {
+				Toast('第'+ index +'张图片，共'+ total +'张')
+			}
+		})
+
+		var instance2 = new PreviewPhoto()
+		instance2.init({
+			selector: 'button',
+			images: [
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/ri44nmimcg90e9xwkdge/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg',
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/ptvaf807gmmv6jtirfdp/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg',
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/dppnwicop1oufdhr3ukp/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg',
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/vkrcayqxcqqpcldelfbe/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg',
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/urahxs4luzpzngvheoiw/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg',
+				'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto/cp5uqd0jdta68qnutrvi/epic-react-flyknit-%E5%A4%A7%E7%AB%A5%E8%B7%91%E6%AD%A5%E7%AB%A5%E9%9E%8B-bnPsxH.jpg'
+				],
+		})
+		document.querySelector('button').addEventListener('click', function() {
+			instance2.show()
+		})
+	</script>
+</body>
+</html>
